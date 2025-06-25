@@ -4,7 +4,6 @@
   <Filter
     :filterByType="filterByTypes"
     v-model:selectedOptions="selectedOption"
-    
   />
 
   <ProductList :products="product" />
@@ -57,33 +56,33 @@ const filterByTypes = computed(() => [
 const product = computed(() => [
   {
     image: "anhproduct1.png",
-    title: "DIRTYCOINS BÌNH TÂN EMBROIDE...",
+    name: "DIRTYCOINS BÌNH TÂN EMBROIDE...",
     price: "550.000",
-    tags: ["New arrival", "Shout out"],
+    badges: ["New arrival", "Shout out"],
   },
   {
     image: "anhproduct2.png",
-    title: "DIRTYCOINS BÌNH TÂN EMBROIDE...",
+    name: "DIRTYCOINS BÌNH TÂN EMBROIDE...",
     price: "550.000",
-    tags: ["New arrival"],
+    badges: ["New arrival"],
   },
   {
     image: "anhproduct3.png",
-    title: "DIRTYCOINS BÌNH TÂN EMBROIDE...",
+    name: "DIRTYCOINS BÌNH TÂN EMBROIDE...",
     price: "550.000",
-    tags: ["New arrival"],
+    badges: ["New arrival"],
   },
   {
     image: "anhproduct2.png",
-    title: "DIRTYCOINS BÌNH TÂN EMBROIDE...",
+    name: "DIRTYCOINS BÌNH TÂN EMBROIDE...",
     price: "550.000",
-    tags: ["New arrival"],
+    badges: ["New arrival"],
   },
   {
     image: "anhproduct3.png",
-    title: "DIRTYCOINS BÌNH TÂN EMBROIDE...",
+    name: "DIRTYCOINS BÌNH TÂN EMBROIDE...",
     price: "550.000",
-    tags: ["New arrival"],
+    badges: ["New arrival"],
   },
 ]);
 

@@ -1,28 +1,35 @@
 <template>
-  <h1 class="text-center mt-7 text-4xl font-semibold">Các Sản Phẩm Khác</h1>
+  <section class="mt-14">
+    <h1 class="text-center text-2xl md:text-3xl lg:text-4xl font-semibold mb-8">Các Sản Phẩm Khác</h1>
 
-  <div class="grid grid-cols-6 gap-4 mx-5">
-    <div
-      class="text-center"
-      v-for="(item, index) in displayedProducts"
-      :key="index"
-    >
-      <NuxtLink to="">
-        <img :src="`/img/${item.image}`" alt="" class="w-[161px] mx-auto" />
-        <p class="mt-4 text-sm">{{ item.title }}</p>
-        <p class="text-sm mt-1">{{ item.price }} đ</p>
-      </NuxtLink>
+   
+    <div class="grid sm:grid-cols-2 md:grid-cols-6 gap-4 px-3">
+      <div
+        v-for="(item, index) in displayedProducts"
+        :key="index"
+        class="text-center"
+      >
+        <NuxtLink to="">
+          <img :src="`/img/${item.image}`" alt="" class="w-[140px] md:w-[150px] lg:w-[161px] mx-auto" />
+          <p class="mt-3 text-sm">{{ item.title }}</p>
+          <p class="text-sm mt-1">{{ item.price }} đ</p>
+        </NuxtLink>
+      </div>
     </div>
-  </div>
 
-  <div class="flex justify-center mt-4 space-x-2">
-    <button
-      v-for="n in totalPages"
-      :key="n"
-      @click="currentPage = n"
-      :class="[ 'w-3 h-3 rounded-full', currentPage === n ? 'bg-black' : 'bg-gray-300' ]"
-    ></button>
-  </div>
+    <!-- Pagination -->
+    <div class="flex justify-center mt-6 space-x-2">
+      <button
+        v-for="n in totalPages"
+        :key="n"
+        @click="currentPage = n"
+        :class="[
+          'w-3 h-3 rounded-full transition-colors duration-300',
+          currentPage === n ? 'bg-black' : 'bg-gray-300 hover:bg-gray-400'
+        ]"
+      ></button>
+    </div>
+  </section>
 </template>
 
 <script setup>
@@ -49,13 +56,9 @@ const OtherProducts = ref([
 const currentPage = ref(1)
 
 const itemsPerPage = computed(() => {
-  if (screenWidth.value <= 660) {
-    return 2
-  } else if (screenWidth.value <= 768) {
-    return 3
-  } else {
-    return 6
-  }
+  if (screenWidth.value <= 660) return 2
+  if (screenWidth.value <= 767) return 2
+  return 6
 })
 
 const totalPages = computed(() =>
@@ -67,14 +70,5 @@ const paginatedProducts = computed(() => {
   return OtherProducts.value.slice(start, start + itemsPerPage.value)
 })
 
-const displayedProducts = computed(() => {
-  return paginatedProducts.value
-})
+const displayedProducts = computed(() => paginatedProducts.value)
 </script>
-
-
-<style scoped>
-button {
-  transition: background-color 0.3s;
-}
-</style>

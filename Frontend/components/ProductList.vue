@@ -5,13 +5,13 @@
     <div v-for="(product, index) in products" :key="index" class="text-center">
       <NuxtLink class="hover:underline duration-500 underline-offset-4" href="">
         <div class="relative w-full max-w-[240px] aspect-[3/4] mx-auto">
-          <!-- Tags -->
+          <!-- badges -->
           <div class="absolute top-2 left-2 space-x-1 flex flex-wrap">
             <span
-              v-for="(tags, index) in product.tags"
+              v-for="(badges, index) in product.badges"
               :key="index"
               class="bg-black text-white text-xs font-medium px-2 py-1"
-              >{{ tags }}</span
+              >{{ badges }}</span
             >
           </div>
           <img
@@ -20,9 +20,9 @@
             class="w-full max-w-[240px] h-full object-cover rounded"
           />
         </div>
-        <p class="mt-4 text-sm font-medium">{{ product.title }}</p>
+        <p class="mt-4 text-sm font-medium">{{ product.name }}</p>
       </NuxtLink>
-      <p class="text-sm mt-1 font-semibold">{{ product.price }}</p>
+      <p class="text-sm mt-1 font-semibold">{{ product.price }} d</p>
     </div>
   </div>
 </template>

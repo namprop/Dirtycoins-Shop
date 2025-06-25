@@ -100,7 +100,7 @@
         >
           <span
             class="absolute top-3 right-[5px] text-white text-xs bg-black w-4 h-4 flex items-center justify-center"
-            >0</span
+            >{{ cartStore.totalItems }}</span
           >
         </i>
       </div>
@@ -341,7 +341,17 @@
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, onMounted } from "vue";
+import { useCartStore } from '@/stores/cartStore'
+
+const cartStore = useCartStore()
+
+onMounted(() => {
+  cartStore.initCart()
+})
+
+
+
 
 const navOnOff = ref(false);
 const navUpDown = ref({

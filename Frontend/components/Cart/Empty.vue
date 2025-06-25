@@ -1,7 +1,5 @@
 <template>
-
     <div
-    v-show="hidden"
     class="max-w-[1200px] mx-auto flex flex-col justify-between mt-10"
   >
     <h1 class="text-3xl absolute font-semibold mb-6">Giỏ hàng</h1>
@@ -22,11 +20,10 @@
       </NuxtLink>
     </div>
   </div>
+  
 
 </template>
 
 <script setup>
-
-const hidden = ref(false);
 </script>
 
