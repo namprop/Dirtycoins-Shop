@@ -23,6 +23,10 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function Order(){
+        return $this->hasMany('order_id','id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -45,4 +49,6 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
 }
